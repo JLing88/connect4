@@ -5,8 +5,10 @@ require './lib/computer_player'
 class Game
 
   attr_accessor :game_over,
+                :current_player,
                 :player,
-                :current_player
+                :cpu
+
 
   def initialize
     @board = Board.new
@@ -26,6 +28,14 @@ class Game
 
   def accept_move
     gets.chomp.upcase
+  end
+
+  def change_current_player
+    if @current_player == player
+      @current_player = cpu
+    else
+      @current_player = player
+    end
   end
 
 end
