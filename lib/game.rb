@@ -5,7 +5,7 @@ class Game
 
   def initialize
     @board = Board.new
-    @current_player = Player.new("Jesse")
+    @current_player = Player.new
   end
 
   def welcome_message

@@ -18,4 +18,18 @@ class PlayerTest < Minitest::Test
 
     assert_equal expected, actual
   end
+
+  def test_its_name_can_change
+    expected = "Jesse"
+    actual = @player.name
+
+    assert_equal expected, actual
+
+    @player.name = "Jim"
+    expected = "Jim"
+    actual = @player.name
+
+    assert_equal expected, actual
+
+  end
 end
