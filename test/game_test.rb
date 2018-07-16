@@ -26,4 +26,9 @@ class GameTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_it_can_change_players
+    
+
+  end
+
 end
