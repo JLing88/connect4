@@ -1,8 +1,12 @@
-require './lib/board.rb'
+require './lib/game.rb'
 
 game = Game.new
 
+puts game.welcome_message
 
-player_move = gets.chomp
+puts "Player, what is your name? "
+game.name = gets.chomp
 
-board.print_board
+loop until game.game_over == true
+
+end

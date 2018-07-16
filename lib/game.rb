@@ -1,11 +1,14 @@
 require './lib/board'
 require './lib/player'
 
+attr_accessor :game_over
+
 class Game
 
   def initialize
     @board = Board.new
-    @current_player = Player.new("Jesse")
+    @current_player = Player.new
+    @game_over = false
   end
 
   def welcome_message
