@@ -15,6 +15,12 @@ class ComputerPlayer
       "E"
     when 6
       "F"
+<<<<<<< HEAD
 
+=======
+    when 7
+      "G"
+    end
+>>>>>>> 794412f0def136034e5641c7666853b39f96cfbd
   end
 end
