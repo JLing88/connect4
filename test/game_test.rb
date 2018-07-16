@@ -35,7 +35,6 @@ class GameTest < Minitest::Test
     @game.change_current_player
     expected = @game.cpu
     actual = @game.current_player
-    # require 'pry'; binding.pry
     assert_equal expected, actual
   end
 

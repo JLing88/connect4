@@ -38,4 +38,12 @@ class Game
     end
   end
 
+  def play
+    
+
+    while @game_over
+
+    end
+  end
+
 end
