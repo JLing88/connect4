@@ -1,6 +1,7 @@
 class Board
 
-  attr_accessor :grid, :current_slot_index
+  attr_accessor :grid,
+                :current_slot_index
 
   def initialize
     @grid = [

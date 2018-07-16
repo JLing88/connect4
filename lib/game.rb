@@ -1,14 +1,19 @@
 require './lib/board'
 require './lib/player'
-
-attr_accessor :game_over
+require './lib/computer_player'
 
 class Game
 
+  attr_accessor :game_over,
+                :player,
+                :current_player
+
   def initialize
     @board = Board.new
-    @current_player = Player.new
+    @player = Player.new
+    @cpu = ComputerPlayer.new
     @game_over = false
+    @current_player = @player
   end
 
   def welcome_message
@@ -16,7 +21,7 @@ class Game
   end
 
   def request_move
-    "#{@current_player.name}, please select a column A-G: "
+    "#{player.name}, please select a column A-G: "
   end
 
   def accept_move
