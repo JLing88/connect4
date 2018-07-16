@@ -26,4 +26,17 @@ class GameTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_it_can_change_players
+    expected = @game.player
+    actual = @game.current_player
+
+    assert_equal expected, actual
+
+    @game.change_current_player
+    expected = @game.cpu
+    actual = @game.current_player
+    # require 'pry'; binding.pry
+    assert_equal expected, actual
+  end
+
 end
