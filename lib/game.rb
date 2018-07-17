@@ -39,10 +39,18 @@ class Game
   end
 
   def play
-    
-
-    while @game_over
-
+    welcome_message
+    @player.name = @player.get_name
+    require 'pry'; binding.pry
+    while @game_over == false
+      puts @board.print_board
+      print request_move
+      player_move = accept_move
+      @board.process_move(player_move)
+      puts @board.print_board
+      puts "CPU's turn..."
+      sleep(3)
+      @board.process_move(@cpu.generate_column)
     end
   end
 

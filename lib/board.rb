@@ -33,7 +33,7 @@ class Board
   end
 
   def valid_move?(column)
-    @current_slot_index[column] > 1 && ["A", "B", "C", "D", "E", "F", "G"].include?(column)
+    @current_slot_index[column] >= 1 && ["A", "B", "C", "D", "E", "F", "G"].include?(column)
   end
 
   def process_move(input_column)
