@@ -57,4 +57,11 @@ class BoardTest < Minitest::Test
 
     assert_equal expected, actual
   end
+
+  def test_it_can_tell_a_horizontal_win
+    expected = true
+    actual = @board.win_horizontal?
+
+    assert_equal expected, actual
+  end
 end

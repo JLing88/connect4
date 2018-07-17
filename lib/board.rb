@@ -55,4 +55,8 @@ class Board
     end
     current_slot_index[input_column] -= 1
   end
+
+  def win_horizontal?
+
+  end
 end
