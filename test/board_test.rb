@@ -46,12 +46,12 @@ class BoardTest < Minitest::Test
   end
 
   def test_it_can_process_a_move
-    @board.process_move("A")
+    @board.process_move("A", @current_player)
     expected = "X"
     actual = @board.grid[6][0]
     assert_equal expected, actual
 
-    @board.process_move("G")
+    @board.process_move("G", @current_player)
     expected = "X"
     actual = @board.grid[6][6]
 

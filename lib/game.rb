@@ -39,17 +39,19 @@ class Game
   end
 
   def play
-    welcome_message
+    puts welcome_message
     @player.name = @player.get_name
     while @game_over == false
       puts @board.print_board
       print request_move
       player_move = accept_move
-      @board.process_move(player_move)
+      @board.process_move(player_move, current_player)
       puts @board.print_board
+      change_current_player
       puts "CPU's turn..."
       sleep(3)
-      @board.process_move(@cpu.generate_column)
+      @board.process_move(@cpu.generate_column, current_player)
+      change_current_player
     end
   end
 
