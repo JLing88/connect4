@@ -5,7 +5,7 @@ class Player
 
   def initialize(name = 'Player')
     @name = name
-    @piece_icon = "X"
+    @piece_icon = "X" 
   end
 
   def get_name

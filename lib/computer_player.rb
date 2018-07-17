@@ -3,7 +3,7 @@ class ComputerPlayer
   attr_reader :piece_icon
 
   def initialize
-    @piece_icon = "O"
+    @piece_icon = "O" 
   end
 
   def generate_column
