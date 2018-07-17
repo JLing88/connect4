@@ -54,5 +54,6 @@ class Board
         grid[current_slot_index[input_column]][6] = current_player.piece_icon
     end
     current_slot_index[input_column] -= 1
+    end
   end
 end

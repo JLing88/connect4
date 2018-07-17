@@ -45,6 +45,10 @@ class Game
       puts @board.print_board
       print request_move
       player_move = accept_move
+      while @board.valid_move(player_move) == false
+        print "Invalid move! Please try again: "
+        player_move = accept_move
+      end
       @board.process_move(player_move, current_player)
       puts @board.print_board
       change_current_player
@@ -54,12 +58,4 @@ class Game
       change_current_player
     end
   end
-
-  def validate_move(column)
-    valid? = false
-    while !valid?
-      
-    end
-  end
-
 end
