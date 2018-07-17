@@ -55,4 +55,16 @@ class Board
     end
     current_slot_index[input_column] -= 1
   end
+
+  def win_horizontal?
+    transposed_grid = @grid.transpose
+    joined_rows = transposed_grid.map do |row|
+      row.join
+    end
+    joined_rows.map do |row|
+      if row.include?("XXXX") || row.include?("OOOO")
+        return true
+      end
+    end
+  end
 end

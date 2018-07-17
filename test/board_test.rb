@@ -1,11 +1,13 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/board.rb'
+require './lib/player.rb'
 
 class BoardTest < Minitest::Test
 
   def setup
     @board = Board.new
+    @player = Player.new
   end
 
   def test_it_exists
@@ -46,14 +48,28 @@ class BoardTest < Minitest::Test
   end
 
   def test_it_can_process_a_move
-    @board.process_move("A", @current_player)
+    @board.process_move("A", @player)
     expected = "X"
     actual = @board.grid[6][0]
     assert_equal expected, actual
 
-    @board.process_move("G", @current_player)
+    @board.process_move("G", @player)
     expected = "X"
     actual = @board.grid[6][6]
+
+    assert_equal expected, actual
+  end
+
+  def test_it_can_tell_a_horizontal_win
+    @board.grid[1][0] = "O"
+    @board.grid[2][0] = "O"
+    @board.grid[3][0] = "O"
+    @board.grid[4][0] = "O"
+
+    transposed_grid = @board.grid.transpose
+    require 'pry'; binding.pry
+    expected = true
+    actual = @board.win_horizontal?
 
     assert_equal expected, actual
   end
