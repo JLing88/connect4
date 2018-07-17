@@ -38,7 +38,7 @@ class BoardTest < Minitest::Test
 
     assert_equal expected, actual
 
-    @board.current_slot_index["A"] = 1
+    @board.current_slot_index["A"] = 0
     expected = false
     actual = @board.valid_move?("A")
 
@@ -49,7 +49,6 @@ class BoardTest < Minitest::Test
     @board.process_move("A")
     expected = "X"
     actual = @board.grid[6][0]
-
     assert_equal expected, actual
 
     @board.process_move("G")
