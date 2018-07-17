@@ -1,5 +1,11 @@
 class ComputerPlayer
 
+  attr_reader :piece_icon
+
+  def initialize
+    @piece_icon = "O"
+  end
+
   def generate_column
     random_number = rand(1..7)
     case random_number

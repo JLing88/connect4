@@ -41,7 +41,6 @@ class Game
   def play
     welcome_message
     @player.name = @player.get_name
-    require 'pry'; binding.pry
     while @game_over == false
       puts @board.print_board
       print request_move

@@ -36,7 +36,7 @@ class Board
     @current_slot_index[column] >= 1 && ["A", "B", "C", "D", "E", "F", "G"].include?(column)
   end
 
-  def process_move(input_column)
+  def process_move(input_column, current_player)
     if valid_move?(input_column)
       case input_column
       when "A"
