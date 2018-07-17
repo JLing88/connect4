@@ -37,27 +37,22 @@ class Board
   end
 
   def process_move(input_column, current_player)
-    if valid_move?(input_column)
-      case input_column
-        when "A"
-          grid[current_slot_index[input_column]][0] = current_player.piece_icon
-        when "B"
-          grid[current_slot_index[input_column]][1] = current_player.piece_icon
-        when "C"
-          grid[current_slot_index[input_column]][2] = current_player.piece_icon
-        when "D"
-          grid[current_slot_index[input_column]][3] = current_player.piece_icon
-        when "E"
-          grid[current_slot_index[input_column]][4] = current_player.piece_icon
-        when "F"
-          grid[current_slot_index[input_column]][5] = current_player.piece_icon
-        when "G"
-          grid[current_slot_index[input_column]][6] = current_player.piece_icon
-      end
-      current_slot_index[input_column] -= 1
-    else
-      puts "Invalid column! Please try again: "
-      
+    case input_column
+      when "A"
+        grid[current_slot_index[input_column]][0] = current_player.piece_icon
+      when "B"
+        grid[current_slot_index[input_column]][1] = current_player.piece_icon
+      when "C"
+        grid[current_slot_index[input_column]][2] = current_player.piece_icon
+      when "D"
+        grid[current_slot_index[input_column]][3] = current_player.piece_icon
+      when "E"
+        grid[current_slot_index[input_column]][4] = current_player.piece_icon
+      when "F"
+        grid[current_slot_index[input_column]][5] = current_player.piece_icon
+      when "G"
+        grid[current_slot_index[input_column]][6] = current_player.piece_icon
     end
+    current_slot_index[input_column] -= 1
   end
 end
