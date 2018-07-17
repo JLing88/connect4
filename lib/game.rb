@@ -45,7 +45,7 @@ class Game
       puts @board.print_board
       print request_move
       player_move = accept_move
-      while @board.valid_move(player_move) == false
+      while @board.valid_move?(player_move) == false
         print "Invalid move! Please try again: "
         player_move = accept_move
       end
@@ -54,7 +54,11 @@ class Game
       change_current_player
       puts "CPU's turn..."
       sleep(2)
-      @board.process_move(@cpu.generate_column, current_player)
+      cpu_move = @cpu.generate_column
+      while @board.valid_move?(cpu_move) == false
+        cpu_move = @cpu.generate_column
+      end
+      @board.process_move(cpu_move, current_player)
       change_current_player
     end
   end
