@@ -49,9 +49,16 @@ class Game
       puts @board.print_board
       change_current_player
       puts "CPU's turn..."
-      sleep(3)
+      sleep(2)
       @board.process_move(@cpu.generate_column, current_player)
       change_current_player
+    end
+  end
+
+  def validate_move(column)
+    valid? = false
+    while !valid?
+      
     end
   end
 
