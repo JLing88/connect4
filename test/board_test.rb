@@ -58,7 +58,7 @@ class BoardTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_it_can_tell_a_horizontal_win_with_O
+  def test_it_can_tell_a_vertical_win_with_O
     @board.grid[1][0] = "O"
     @board.grid[2][0] = "O"
     @board.grid[3][0] = "O"
@@ -66,22 +66,27 @@ class BoardTest < Minitest::Test
 
     transposed_grid = @board.grid.transpose
 
-    assert @board.win_horizontal?
+    assert @board.win_vertical?
   end
 
-  def test_it_can_tell_a_horizontal_win_with_X
+  def test_it_can_tell_a_vertical_win_with_X
     @board.grid[2][3] = "O"
     @board.grid[3][3] = "O"
     @board.grid[4][3] = "O"
     @board.grid[5][3] = "O"
 
     transposed_grid = @board.grid.transpose
-    require 'pry'; binding.pry
-    assert @board.win_horizontal?
+    assert @board.win_vertical?
   end
 
-  def test_it_can_tell_a_vertical_win
+  def test_it_can_tell_a_horizontal_win
+    @board.grid[2][1] = "O"
+    @board.grid[2][2] = "O"
+    @board.grid[2][3] = "O"
+    @board.grid[2][4] = "O"
 
+    require 'pry'; binding.pry
+    assert @board.win_horizontals?
 
   end
 end
