@@ -41,10 +41,8 @@ class BoardTest < Minitest::Test
     assert_equal expected, actual
 
     @board.current_slot_index["A"] = 0
-    expected = false
-    actual = @board.valid_move?("A")
 
-    assert_equal expected, actual
+    refute @board.valid_move?("A")
   end
 
   def test_it_can_process_a_move
@@ -60,17 +58,30 @@ class BoardTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_it_can_tell_a_horizontal_win
+  def test_it_can_tell_a_horizontal_win_with_O
     @board.grid[1][0] = "O"
     @board.grid[2][0] = "O"
     @board.grid[3][0] = "O"
     @board.grid[4][0] = "O"
 
     transposed_grid = @board.grid.transpose
-    require 'pry'; binding.pry
-    expected = true
-    actual = @board.win_horizontal?
 
-    assert_equal expected, actual
+    assert @board.win_horizontal?
+  end
+
+  def test_it_can_tell_a_horizontal_win_with_X
+    @board.grid[2][3] = "O"
+    @board.grid[3][3] = "O"
+    @board.grid[4][3] = "O"
+    @board.grid[5][3] = "O"
+
+    transposed_grid = @board.grid.transpose
+    require 'pry'; binding.pry
+    assert @board.win_horizontal?
+  end
+
+  def test_it_can_tell_a_vertical_win
+
+
   end
 end
