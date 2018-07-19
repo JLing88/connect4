@@ -38,4 +38,8 @@ class GameTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_the_game_can_be_won
+
+  end
+
 end

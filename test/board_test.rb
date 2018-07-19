@@ -119,8 +119,6 @@ class BoardTest < Minitest::Test
     @board.grid[3][2] = "O"
     @board.grid[4][3] = "O"
 
-    require 'pry'; binding.pry
-
-    assert @board.win_horizontal?
+    assert @board.win_diagonal?
   end
 end

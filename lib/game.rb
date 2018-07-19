@@ -38,6 +38,10 @@ class Game
     end
   end
 
+  def game_win?
+    win_horizontal? || win_vertical?
+  end
+
   def play
     puts welcome_message
     @player.name = @player.get_name

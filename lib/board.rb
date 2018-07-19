@@ -83,4 +83,8 @@ class Board
   def draw?
     @move_count >= 42
   end
+
+  def win_diagonal?
+
+  end
 end
