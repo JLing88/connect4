@@ -113,14 +113,23 @@ class BoardTest < Minitest::Test
     assert @board.draw?
   end
 
-  def test_it_can_tell_a_diagonal_win
-    @board.grid[1][0] = "O"
-    @board.grid[2][1] = "O"
-    @board.grid[3][2] = "O"
+  # def test_it_can_tell_a_diagonal_win
+  #   @board.grid[1][0] = "O"
+  #   @board.grid[2][1] = "O"
+  #   @board.grid[3][2] = "O"
+  #   @board.grid[4][3] = "O"
+  #
+  #   assert @board.win_diagonal?
+  # end
+
+  def test_game_can_be_won
+    refute @board.game_won?
+
+    @board.grid[4][0] = "O"
+    @board.grid[4][1] = "O"
+    @board.grid[4][2] = "O"
     @board.grid[4][3] = "O"
 
-    require 'pry'; binding.pry
-
-    assert @board.win_horizontal?
+    assert @board.game_won?
   end
 end
