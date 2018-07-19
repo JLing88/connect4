@@ -23,6 +23,7 @@ class Board
       "F" => 6,
       "G" => 6
     }
+    @move_count = 0
   end
 
   def print_board
@@ -54,6 +55,7 @@ class Board
         grid[current_slot_index[input_column]][6] = current_player.piece_icon
     end
     current_slot_index[input_column] -= 1
+    @move_count += 1
   end
 
   def win_vertical?

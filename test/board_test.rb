@@ -104,4 +104,8 @@ class BoardTest < Minitest::Test
 
     assert @board.win_horizontal?
   end
+
+  def test_game_can_end_in_draw
+
+  end
 end
