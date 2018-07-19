@@ -1,9 +1,11 @@
 class Board
 
   attr_accessor :grid,
-                :current_slot_index
+                :current_slot_index,
+                :move_count
 
   def initialize
+    @move_count = 0
     @grid = [
       ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
       ['.', '.', '.', '.', '.', '.', '.'],
@@ -54,17 +56,31 @@ class Board
         grid[current_slot_index[input_column]][6] = current_player.piece_icon
     end
     current_slot_index[input_column] -= 1
+    @move_count += 1
   end
 
-  def win_horizontal?
+  def win_vertical?
     transposed_grid = @grid.transpose
     joined_rows = transposed_grid.map do |row|
       row.join
     end
-    joined_rows.map do |row|
-      if row.include?("XXXX") || row.include?("OOOO")
-        return true
-      end
+    bool_array = joined_rows.map do |row|
+      row.include?("XXXX") || row.include?("OOOO")
     end
+    bool_array.any?
+  end
+
+  def win_horizontal?
+    rows = @grid.map do |row|
+      row.join
+    end
+    bool_array = rows.map do |row|
+      row.include?("XXXX") || row.include?("OOOO")
+    end
+    bool_array.any?
+  end
+
+  def draw?
+    @move_count >= 42
   end
 end
