@@ -42,6 +42,14 @@ class Game
     @board.win_horizontal? || @board.win_vertical?
   end
 
+  def play_again
+    puts "Would you like to play again? Y/N"
+    input = gets.chomp.upcase
+    if input == "Y"
+      play
+    end
+  end
+
   def play
     puts welcome_message
     @player.name = @player.get_name
@@ -73,5 +81,6 @@ class Game
       end
       change_current_player
     end
+    play_again
   end
 end
