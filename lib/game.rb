@@ -54,6 +54,10 @@ class Game
         player_move = accept_move
       end
       @board.process_move(player_move, current_player)
+      if @board.game_won?
+        puts "#{@player.name} wins!"
+        break
+      end
       puts @board.print_board
       change_current_player
       puts "CPU's turn..."
@@ -63,6 +67,10 @@ class Game
         cpu_move = @cpu.generate_column
       end
       @board.process_move(cpu_move, current_player)
+      if @board.game_won?
+        puts "CPU wins!"
+        break
+      end
       change_current_player
     end
   end
