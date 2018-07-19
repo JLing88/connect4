@@ -20,7 +20,7 @@ class GameTest < Minitest::Test
   end
 
   def test_it_can_request_a_move
-    expected = "Jesse, please select a column A-G: "
+    expected = "Player, please select a column A-G: "
     actual = @game.request_move
 
     assert_equal expected, actual
@@ -37,9 +37,4 @@ class GameTest < Minitest::Test
     actual = @game.current_player
     assert_equal expected, actual
   end
-
-  def test_the_game_can_be_won
-
-  end
-
 end

@@ -84,7 +84,11 @@ class Board
     @move_count >= 42
   end
 
-  def win_diagonal?
+  # def win_diagonal?
+  #
+  # end
+
+  def game_won?
 
   end
 end

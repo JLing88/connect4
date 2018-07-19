@@ -39,7 +39,7 @@ class Game
   end
 
   def game_win?
-    win_horizontal? || win_vertical?
+    @board.win_horizontal? || @board.win_vertical?
   end
 
   def play
