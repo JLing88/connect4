@@ -1,9 +1,11 @@
 class Board
 
   attr_accessor :grid,
-                :current_slot_index
+                :current_slot_index,
+                :move_count
 
   def initialize
+    @move_count = 0
     @grid = [
       ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
       ['.', '.', '.', '.', '.', '.', '.'],
@@ -23,7 +25,6 @@ class Board
       "F" => 6,
       "G" => 6
     }
-    @move_count = 0
   end
 
   def print_board
@@ -77,5 +78,9 @@ class Board
       row.include?("XXXX") || row.include?("OOOO")
     end
     bool_array.any?
+  end
+
+  def draw?
+    @move_count >= 42
   end
 end

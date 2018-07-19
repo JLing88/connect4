@@ -106,6 +106,10 @@ class BoardTest < Minitest::Test
   end
 
   def test_game_can_end_in_draw
+    refute @board.draw?
 
+    @board.move_count = 42
+
+    assert @board.draw?
   end
 end
