@@ -50,6 +50,17 @@ class Game
     end
   end
 
+  def check_game_over_or_draw
+    if @board.game_won?
+      puts "#{@current_player.name} wins!"
+      @game_over = true
+    elsif
+      @board.draw?
+      puts "Draw!"
+      @game_over = true
+    end
+  end
+
   def play
     puts welcome_message
     @player.name = @player.get_name
@@ -62,12 +73,8 @@ class Game
         player_move = accept_move
       end
       @board.process_move(player_move, current_player)
-      if @board.game_won?
-        puts "#{@current_player.name} wins!"
-        break
-      elsif
-        @board.draw?
-        puts "Draw!"
+      check_game_over_or_draw
+      if @game_over
         break
       end
       puts @board.print_board
@@ -79,14 +86,7 @@ class Game
         cpu_move = @cpu.generate_column
       end
       @board.process_move(cpu_move, current_player)
-      if @board.game_won?
-        puts "#{@current_player.name} wins!"
-        break
-      elsif
-        @board.draw?
-        puts "Draw!"
-        break
-      end
+      check_game_over_or_draw
       change_current_player
     end
     play_again
