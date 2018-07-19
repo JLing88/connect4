@@ -63,7 +63,11 @@ class Game
       end
       @board.process_move(player_move, current_player)
       if @board.game_won?
-        puts "#{@player.name} wins!"
+        puts "#{@current_player.name} wins!"
+        break
+      elsif
+        @board.draw?
+        puts "Draw!"
         break
       end
       puts @board.print_board
@@ -76,7 +80,11 @@ class Game
       end
       @board.process_move(cpu_move, current_player)
       if @board.game_won?
-        puts "CPU wins!"
+        puts "#{@current_player.name} wins!"
+        break
+      elsif
+        @board.draw?
+        puts "Draw!"
         break
       end
       change_current_player

@@ -1,9 +1,11 @@
 class ComputerPlayer
 
-  attr_reader :piece_icon
+  attr_reader :piece_icon,
+              :name
 
   def initialize
     @piece_icon = "O"
+    @name = "CPU"
   end
 
   def generate_column
