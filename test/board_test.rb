@@ -59,6 +59,8 @@ class BoardTest < Minitest::Test
   end
 
   def test_it_can_tell_a_vertical_win_with_O
+    refute @board.win_vertical?
+
     @board.grid[1][0] = "O"
     @board.grid[2][0] = "O"
     @board.grid[3][0] = "O"
@@ -70,6 +72,8 @@ class BoardTest < Minitest::Test
   end
 
   def test_it_can_tell_a_vertical_win_with_X
+    refute @board.win_vertical?
+
     @board.grid[2][3] = "O"
     @board.grid[3][3] = "O"
     @board.grid[4][3] = "O"
@@ -79,14 +83,25 @@ class BoardTest < Minitest::Test
     assert @board.win_vertical?
   end
 
-  def test_it_can_tell_a_horizontal_win
+  def test_it_can_tell_a_horizontal_win_with_O
+    refute @board.win_horizontal?
+
     @board.grid[2][1] = "O"
     @board.grid[2][2] = "O"
     @board.grid[2][3] = "O"
     @board.grid[2][4] = "O"
 
-    require 'pry'; binding.pry
-    assert @board.win_horizontals?
+    assert @board.win_horizontal?
+  end
 
+  def test_it_can_tell_a_horizontal_win_with_X
+    refute @board.win_horizontal?
+
+    @board.grid[4][0] = "O"
+    @board.grid[4][1] = "O"
+    @board.grid[4][2] = "O"
+    @board.grid[4][3] = "O"
+
+    assert @board.win_horizontal?
   end
 end

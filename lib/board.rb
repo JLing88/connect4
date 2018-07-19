@@ -61,10 +61,19 @@ class Board
     joined_rows = transposed_grid.map do |row|
       row.join
     end
-    joined_rows.map do |row|
-      if row.include?("XXXX") || row.include?("OOOO")
-        return true
-      end
+    bool_array = joined_rows.map do |row|
+      row.include?("XXXX") || row.include?("OOOO")
     end
+    bool_array.any?
+  end
+
+  def win_horizontal?
+    rows = @grid.map do |row|
+      row.join
+    end
+    bool_array = rows.map do |row|
+      row.include?("XXXX") || row.include?("OOOO")
+    end
+    bool_array.any?
   end
 end
