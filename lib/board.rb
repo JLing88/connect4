@@ -89,6 +89,6 @@ class Board
   # end
 
   def game_won?
-
+    win_vertical? || win_horizontal?
   end
 end
